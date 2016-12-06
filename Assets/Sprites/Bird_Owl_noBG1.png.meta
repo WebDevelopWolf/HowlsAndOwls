@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 370d9bdb6afa46145b957d55381040da
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: owl1
+    21300002: owl2
+    21300004: owl3
+    21300006: owl4
+    21300008: owl5
+    21300010: owl6
+    21300012: owl7
+    21300014: owl8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: owl1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 9
+        width: 40
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 23
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 24
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl4
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 26
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl5
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 24
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl6
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 19
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl7
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 10
+        width: 40
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: owl8
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 8
+        width: 26
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
