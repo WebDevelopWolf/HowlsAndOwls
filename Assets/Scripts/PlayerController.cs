@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//Move player side to side based on keyboard input
 		if (Input.GetKey(KeyCode.LeftArrow)) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		} else if (Input.GetKey(KeyCode.RightArrow)) {
