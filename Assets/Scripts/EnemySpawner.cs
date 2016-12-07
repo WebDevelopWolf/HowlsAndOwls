@@ -42,11 +42,13 @@ public class EnemySpawner : MonoBehaviour {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		}
 		
-		//Keep enemies inside play space
+		//Keep enemies inside play space and change direction
 		float rightEdgeOfFormation = transform.position.x + (0.5f * width);
 		float leftEdgeOfFormation = transform.position.x - (0.5f * width);
-		if (leftEdgeOfFormation < xmin || rightEdgeOfFormation > xmax) { 
-			movingRight = !movingRight;
+		if (leftEdgeOfFormation < xmin) { 
+			movingRight = true;
+		} else if (rightEdgeOfFormation > xmax) {
+			movingRight = false;
 		}
 	}
 }
