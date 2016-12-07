@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed;
 	public float firingRate = 0.2f;
+	public float health = 250f;
 	
 	private float xmin;
 	private float xmax;
@@ -23,7 +24,8 @@ public class PlayerController : MonoBehaviour {
 	
 	//Fire Projectile
 	void Fire () {
-		GameObject rock = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+		Vector3 offset = new Vector3(0f, 1f, 0f);
+		GameObject rock = Instantiate(projectile, transform.position + offset, Quaternion.identity) as GameObject;
 		rock.rigidbody2D.velocity = new Vector3(0, projectileSpeed, 0);
 	}
 	
@@ -46,6 +48,21 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			CancelInvoke("Fire");	
+		}
+	}
+	
+	//Player hit with rock
+	void OnTriggerEnter2D(Collider2D col) {
+		Projectile rock = col.gameObject.GetComponent<Projectile>();
+		if (rock) {
+			Debug.Log ("Player hit with rock");
+			//Remove Damage From Enemy Health
+			health -= rock.GetDamage();
+			rock.Hit();
+			//Kill Enemy if they run out of health
+			if (health <= 0) {
+				Destroy(gameObject);
+			}
 		}
 	}
 }
