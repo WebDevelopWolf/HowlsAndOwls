@@ -14,11 +14,8 @@ public class EnemySpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Spawn Enemies on Placeholders
-		foreach(Transform child in transform) {
-			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
-			enemy.transform.parent = child;
-		}
+		//Inital Enemy Spawn
+		SpawnEnemies ();
 		
 		//Restrict Enemies to Play Space
 		float distance = transform.position.z - Camera.main.transform.position.z;
@@ -50,5 +47,29 @@ public class EnemySpawner : MonoBehaviour {
 		} else if (rightEdgeOfFormation > xmax) {
 			movingRight = false;
 		}
+		
+		//Respawn Enemies when on screen enimes are killed
+		if (AllMembersDead()) {
+			SpawnEnemies ();
+		}
+	}
+	
+	void SpawnEnemies () {
+		//Spawn Enemies on Placeholders
+		foreach(Transform child in transform) {
+			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = child;
+		}
+	}
+	
+	bool AllMembersDead () {
+		//Loop through enemies - if one alive return false if none return true
+		foreach(Transform childPositionGameObject in transform) {
+			//Alive = 1 || Dead = 0
+			if (childPositionGameObject.childCount > 0) {
+				return false;
+			} 
+		}
+		return true;
 	}
 }
