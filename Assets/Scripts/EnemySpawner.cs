@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float width = 10f;
 	public float height = 5f;
 	public float speed = 5f;
+	public float spawnDelay = 0.5f;
 	
 	private bool movingRight = true;
 	private float xmin;
@@ -15,7 +16,7 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Inital Enemy Spawn
-		SpawnEnemies ();
+		SpawnUntilFull();
 		
 		//Restrict Enemies to Play Space
 		float distance = transform.position.z - Camera.main.transform.position.z;
@@ -50,15 +51,18 @@ public class EnemySpawner : MonoBehaviour {
 		
 		//Respawn Enemies when on screen enimes are killed
 		if (AllMembersDead()) {
-			SpawnEnemies ();
+			SpawnUntilFull();
 		}
 	}
 	
-	void SpawnEnemies () {
-		//Spawn Enemies on Placeholders
-		foreach(Transform child in transform) {
-			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
-			enemy.transform.parent = child;
+	void SpawnUntilFull () {
+		Transform freePosition = NextFreePosition();
+		if (freePosition) {
+			GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = freePosition;
+		}
+		if (NextFreePosition()) {
+			Invoke("SpawnUntilFull", spawnDelay);
 		}
 	}
 	
@@ -71,5 +75,16 @@ public class EnemySpawner : MonoBehaviour {
 			} 
 		}
 		return true;
+	}
+	
+	Transform NextFreePosition () {
+		//Loop through enemies
+		foreach(Transform childPositionGameObject in transform) {
+			//When there is no enemy - spane a new one
+			if (childPositionGameObject.childCount == 0) {
+				return childPositionGameObject;
+			} 
+		}
+		return null;
 	}
 }
