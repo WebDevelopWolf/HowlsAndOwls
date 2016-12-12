@@ -7,6 +7,13 @@ public class EnemyController : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed = 10f;
 	public float shotsPerSecond = 0.5f;
+	public int scoreValue = 150;
+	
+	private Score scoreKeeper;
+	
+	void Start() {
+		scoreKeeper = GameObject.Find("Score").GetComponent<Score>();
+	}
 	
 	//Enemy hit with rock
 	void OnTriggerEnter2D(Collider2D col) {
@@ -18,6 +25,7 @@ public class EnemyController : MonoBehaviour {
 			//Kill Enemy if they run out of health
 			if (health <= 0) {
 				Destroy(gameObject);
+				scoreKeeper.UpdateScore(scoreValue);
 			}
 		}
 	}
