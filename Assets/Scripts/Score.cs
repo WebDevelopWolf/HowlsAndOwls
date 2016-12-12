@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Score : MonoBehaviour {
 
-	public int incScore = 0;
+	public static int incScore = 0;
 	private Text text;
 	
 	void Start() {
@@ -17,8 +17,7 @@ public class Score : MonoBehaviour {
 		text.text = incScore.ToString();
 	}
 	
-	public void Reset() {
+	public static void Reset() {
 		incScore = 0;
-		text.text = incScore.ToString();
 	}
 }

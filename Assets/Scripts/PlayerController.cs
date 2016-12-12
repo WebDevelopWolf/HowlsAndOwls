@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour {
 			if (health <= 0) {
 				Destroy(gameObject);
 				AudioSource.PlayClipAtPoint(dieSound, transform.position);
+				LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+				man.LoadLevel("Win");
 			}
 		}
 	}
