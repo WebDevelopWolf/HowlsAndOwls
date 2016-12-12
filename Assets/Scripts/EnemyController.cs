@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour {
 	public float projectileSpeed = 10f;
 	public float shotsPerSecond = 0.5f;
 	public int scoreValue = 150;
+	public AudioClip fireSound;
+	public AudioClip dieSound;
 	
 	private Score scoreKeeper;
 	
@@ -26,6 +28,7 @@ public class EnemyController : MonoBehaviour {
 			if (health <= 0) {
 				Destroy(gameObject);
 				scoreKeeper.UpdateScore(scoreValue);
+				AudioSource.PlayClipAtPoint(dieSound, transform.position);
 			}
 		}
 	}
@@ -34,6 +37,7 @@ public class EnemyController : MonoBehaviour {
 		Vector3 startPosition = transform.position + new Vector3(0f, -1f, 0);
 		GameObject rock = Instantiate(projectile, startPosition, Quaternion.identity) as GameObject;	
 		rock.rigidbody2D.velocity = new Vector2(0f, -projectileSpeed);
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	
 	void Update() {

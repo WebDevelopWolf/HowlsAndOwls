@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float projectileSpeed;
 	public float firingRate = 0.2f;
 	public float health = 250f;
+	public AudioClip fireSound;
+	public AudioClip dieSound;
 	
 	private float xmin;
 	private float xmax;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		Vector3 offset = new Vector3(0f, 1f, 0f);
 		GameObject rock = Instantiate(projectile, transform.position + offset, Quaternion.identity) as GameObject;
 		rock.rigidbody2D.velocity = new Vector3(0, projectileSpeed, 0);
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 	
 	// Update is called once per frame
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 			//Kill Enemy if they run out of health
 			if (health <= 0) {
 				Destroy(gameObject);
+				AudioSource.PlayClipAtPoint(dieSound, transform.position);
 			}
 		}
 	}
